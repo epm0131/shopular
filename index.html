@@ -5,27 +5,42 @@
     <title>Shopular!</title>
   </head>
   <body>
+    <header>
+      <h1>Shopular</h1>
+    </header>
 
-    <h1>Shopular</h1>
+    <main ng-controller='InventoryController as inven'>
 
-    <table>
-      <colgroup span='4'></colgroup>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Color</th>
-      </tr>
-      <tr>
-        <td> {{  }} </td>
-        <td> {{  }} </td>
-        <td> {{  }} </td>
-        <td> {{  }} </td>
-      </tr>
-    </table>
+      <table>
+        <colgroup span='4'></colgroup>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Color</th>
+          <th>Discount</th>
+        </tr>
+        <tr ng-repeat='inventory in inven.items'>
+          <td> {{ inventory.id }}</td>
+          <td> {{ inventory.name }} </td>
+          <td> {{ inventory.price }} </td>
+          <td> {{ inventory.quantity }} </td>
+          <td> {{ inventory.color }} </td>
+          <td> {{ inventory.discount }} </td>
+        </tr>
+      </table>
+
+  </main>
+
+  <footer>
+    <h2>End</h2>
+  </footer>
 
     <script src='node_modules/angular/angular.js'></script>
     <script src='js/shopular.module.js'></script>
+    <script src='js/shop.controller.js'></script>
+
 
   </body>
 </html>
