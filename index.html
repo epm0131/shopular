@@ -8,7 +8,7 @@
 
   </head>
   <body>
-    
+
     <header>
       <h1>Shopular</h1>
     </header>
@@ -16,7 +16,7 @@
     <main ng-controller='InventoryController as inven'>
 
       <table>
-        <colgroup span='6'></colgroup>
+        <colgroup span='4'></colgroup>
         <tr>
           <th>Name</th>
           <th>Price</th>
@@ -25,13 +25,13 @@
         </tr>
         <tr ng-repeat='inventory in inven.items'>
           <td> {{ inventory.name }} </td>
-          <td> {{ ((inventory.price - inventory.discount) * inven.tax) | currency}}
+          <td> {{ inven.getPrice(inventory) | currency}}
             <img src='pic/98350f05-sale_2.png' ng-hide='inventory.discount===0'></td>
           <td> {{ inventory.quantity }} </td>
           <td> {{ inventory.color }} </td>
         </tr>
       </table>
-
+      <button ng-click='inven.switchLocale()'>Switch Currency</button>
   </main>
 
   <footer>

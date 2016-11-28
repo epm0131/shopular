@@ -9,22 +9,39 @@
       this.tax = 1.575;
 
       this.items = [
-        { "id": 2957, "name": "widget", "price": 32, "quantity": 203, "color": "red", "discount": 31 },
-        { "id": 89274, "name": "golf club", "price": 98, "quantity": 10, "color": "black", "discount": 0 },
-        { "id": 64, "name": "iPhone", "price": 499, "quantity": 2, "color": "white", "discount": 0 },
-        { "id": 87363, "name": "bonzai tree", "price": 76, "quantity": 2, "color": "green", "discount": 0 },
-        { "id": 1736, "name": "towel", "price": 55, "quantity": 30, "color": "brown", "discount": 10 },
-        { "id": 4836, "name": "dog bed", "price": 99, "quantity": 10, "color": "beige", "discount": 50 },
-        { "id": 829, "name": "waste basket", "price": 15, "quantity": 40, "color": "silver", "discount": 0 },
-        { "id": 46, "name": "guitar", "price": 899, "quantity": 0, "color": "blue", "discount": 150 },
-        { "id": 17456, "name": "matcha tea", "price": 42, "quantity": 4, "color": "green", "discount": 11 },
-        { "id": 3292, "name": "enlightenment", "price": 99999, "quantity": 1, "color": "red", "discount": 0 },
-        { "id": 533, "name": "eggs", "price": 5, "quantity": 12, "color": "brown", "discount": 1 },
-        { "id": 683, "name": "pillow", "price": 27, "quantity": 10, "color": "black", "discount": 12 }
+        { "id": 2957, "name": "Widget", "price": 32, "quantity": 203, "color": "Red", "discount": 31 },
+        { "id": 89274, "name": "Golf club", "price": 98, "quantity": 10, "color": "Black", "discount": 0 },
+        { "id": 64, "name": "iPhone", "price": 499, "quantity": 2, "color": "White", "discount": 0 },
+        { "id": 87363, "name": "Bonzai tree", "price": 76, "quantity": 2, "color": "Green", "discount": 0 },
+        { "id": 1736, "name": "Towel", "price": 55, "quantity": 30, "color": "Brown", "discount": 10 },
+        { "id": 4836, "name": "Dog bed", "price": 99, "quantity": 10, "color": "Beige", "discount": 50 },
+        { "id": 829, "name": "Waste basket", "price": 15, "quantity": 40, "color": "Silver", "discount": 0 },
+        { "id": 46, "name": "Guitar", "price": 899, "quantity": 0, "color": "Blue", "discount": 150 },
+        { "id": 17456, "name": "Matcha tea", "price": 42, "quantity": 4, "color": "Green", "discount": 11 },
+        { "id": 3292, "name": "Enlightenment", "price": 99999, "quantity": 1, "color": "Red", "discount": 0 },
+        { "id": 533, "name": "Eggs", "price": 5, "quantity": 12, "color": "Brown", "discount": 1 },
+        { "id": 683, "name": "Pillow", "price": 27, "quantity": 10, "color": "Black", "discount": 12 }
       ];
 
+      this.uk = false;
 
-    }
+      this.switchLocale = function switchLocale() {
+      this.uk = !this.uk;
+      };
+
+      this.getPrice = function getPrice(inventory) {
+      var result = ((inventory.price - inventory.discount) * this.tax);
+      console.log('price getter', this.uk, result);
+      if (this.uk === true) {
+       result *= 1.5;
+      }
+     return result;
+   };
+ }
+
+
+
+
 
 
 
