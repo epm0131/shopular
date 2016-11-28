@@ -1,0 +1,22 @@
+{
+  "name": "shopular",
+  "version": "1.0.0",
+  "description": "TIY: Building a web application for a shop's inventory. By the end of this assignment we should have a basic grasp of putting a couple of the pieces of Angular together to see data in our browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epm0131/shopular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/epm0131/shopular/issues"
+  },
+  "homepage": "https://github.com/epm0131/shopular#readme",
+  "dependencies": {
+    "angular": "^1.5.9"
+  }
+}
