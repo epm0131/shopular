@@ -25,7 +25,7 @@
           <!-- <td> {{ inventory.id }}</td> -->
           <td> {{ inventory.name }} </td>
           <td> {{ ((inventory.price - inventory.discount) * inven.tax) | currency}}
-            <img src='pic/98350f05-sale_2.png'></td>
+            <img src='pic/98350f05-sale_2.png' ng-hide='inventory.discount===0'></td>
           <td> {{ inventory.quantity }} </td>
           <td> {{ inventory.color }} </td>
           <!-- <td> {{ inventory.discount }} </td> -->
