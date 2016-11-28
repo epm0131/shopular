@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html ng-app='shopular'>
   <head>
+
     <meta charset="utf-8">
     <title>Shopular!</title>
+    <link rel='stylesheet' href='style.css' type='text/css'>
+
   </head>
   <body>
+    
     <header>
       <h1>Shopular</h1>
     </header>
@@ -14,28 +18,24 @@
       <table>
         <colgroup span='6'></colgroup>
         <tr>
-          <!-- <th>ID</th> -->
           <th>Name</th>
           <th>Price</th>
           <th>Quantity</th>
           <th>Color</th>
-          <!-- <th>Discount</th> -->
         </tr>
         <tr ng-repeat='inventory in inven.items'>
-          <!-- <td> {{ inventory.id }}</td> -->
           <td> {{ inventory.name }} </td>
           <td> {{ ((inventory.price - inventory.discount) * inven.tax) | currency}}
             <img src='pic/98350f05-sale_2.png' ng-hide='inventory.discount===0'></td>
           <td> {{ inventory.quantity }} </td>
           <td> {{ inventory.color }} </td>
-          <!-- <td> {{ inventory.discount }} </td> -->
         </tr>
       </table>
 
   </main>
 
   <footer>
-    <h2>End</h2>
+    <p> &copy; The Shopular ltd. </p>
   </footer>
 
     <script src='node_modules/angular/angular.js'></script>

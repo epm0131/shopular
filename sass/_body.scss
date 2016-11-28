@@ -1,0 +1,16 @@
+tr:nth-child(odd) {
+  background-color: $rowColorOdd;
+}
+
+tr:nth-child(even) {
+  background-color: $rowColorEven;
+}
+
+
+table {
+  margin: 0 auto;
+  width: 80%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+}

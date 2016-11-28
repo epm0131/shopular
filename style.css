@@ -1,0 +1,20 @@
+tr:nth-child(odd) {
+  background-color: #F7D358; }
+
+tr:nth-child(even) {
+  background-color: #848484; }
+
+table {
+  margin: 0 auto;
+  width: 80%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center; }
+
+h1 {
+  text-align: center; }
+
+footer {
+  text-align: center; }
+
+/*# sourceMappingURL=style.css.map */
