@@ -12,22 +12,22 @@
     <main ng-controller='InventoryController as inven'>
 
       <table>
-        <colgroup span='4'></colgroup>
+        <colgroup span='6'></colgroup>
         <tr>
-          <th>ID</th>
+          <!-- <th>ID</th> -->
           <th>Name</th>
           <th>Price</th>
           <th>Quantity</th>
           <th>Color</th>
-          <th>Discount</th>
+          <!-- <th>Discount</th> -->
         </tr>
         <tr ng-repeat='inventory in inven.items'>
-          <td> {{ inventory.id }}</td>
+          <!-- <td> {{ inventory.id }}</td> -->
           <td> {{ inventory.name }} </td>
-          <td> {{ inventory.price }} </td>
+          <td> {{ ((inventory.price - inventory.discount) * inven.tax) }} </td>
           <td> {{ inventory.quantity }} </td>
           <td> {{ inventory.color }} </td>
-          <td> {{ inventory.discount }} </td>
+          <!-- <td> {{ inventory.discount }} </td> -->
         </tr>
       </table>
 
