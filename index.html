@@ -24,7 +24,8 @@
         <tr ng-repeat='inventory in inven.items'>
           <!-- <td> {{ inventory.id }}</td> -->
           <td> {{ inventory.name }} </td>
-          <td> {{ ((inventory.price - inventory.discount) * inven.tax) }} </td>
+          <td> {{ ((inventory.price - inventory.discount) * inven.tax) | currency}}
+            <img src='pic/98350f05-sale_2.png'></td>
           <td> {{ inventory.quantity }} </td>
           <td> {{ inventory.color }} </td>
           <!-- <td> {{ inventory.discount }} </td> -->
