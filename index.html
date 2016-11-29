@@ -16,31 +16,62 @@
     <main ng-controller='InventoryController as inven'>
 
       <table>
+        <thead>
         <colgroup span='4'></colgroup>
         <tr>
           <th>Name</th>
           <th>Price</th>
           <th>Quantity</th>
-          <th>Color</th>
+          <th ng-if='!inven.uk'>Color</th>
+          <th ng-if='inven.uk'>Colour</th>
         </tr>
+        </thead>
+        <tbody>
         <tr ng-repeat='inventory in inven.items'>
           <td> {{ inventory.name }} </td>
-          <td> {{ inven.getPrice(inventory) | currency}}
+          <td> {{ inven.getPrice(inventory) | currency:inven.currencyFormat }}
             <img src='pic/98350f05-sale_2.png' ng-hide='inventory.discount===0'></td>
           <td> {{ inventory.quantity }} </td>
           <td> {{ inventory.color }} </td>
         </tr>
+        </tbody>
       </table>
       <button ng-click='inven.switchLocale()'>Switch Currency</button>
+
+      <form class="" action="index.html" method="post">
+
+        <h2>Add Items</h2>
+
+        <input type="text" name="NewItem" placeholder='Add Item Name' required>
+        <input type="number" name="Price" placeholder='Add Price' required min=0>
+        <input type="number" name="Quantity" placeholder='Add Quantity' required min=0>
+        <input type="text" name="Color" placeholder='Add Color' required>
+        <input type="number" name="Discount" placeholder='Add Discount' required min=0>
+
+
+
+
+
+      </form>
   </main>
 
   <footer>
     <p> &copy; The Shopular ltd. </p>
   </footer>
 
-    <script src='node_modules/angular/angular.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js'></script>
+
+  <script>
+    if(typeof(angular) === 'undefined') {
+      var ngScriptTag = document.createElement('script');
+      ngScriptTag.setAttribute('src', 'node_modules/angular/angular.js')
+      document.write(ngScriptTag.outerHTML);
+    }
+  </script>
     <script src='js/shopular.module.js'></script>
     <script src='js/shop.controller.js'></script>
+    <script src='js/addItem.controller.js'></script>
+
 
 
   </body>

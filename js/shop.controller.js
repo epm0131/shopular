@@ -24,9 +24,16 @@
       ];
 
       this.uk = false;
+      this.currencyFormat = '$';
 
       this.switchLocale = function switchLocale() {
       this.uk = !this.uk;
+      if(this.uk) {
+        this.currencyFormat = 'GBP';
+      } else {
+        this.currencyFormat = '$';
+      }
+      
       };
 
       this.getPrice = function getPrice(inventory) {
@@ -40,7 +47,7 @@
 
       this.changeName = function changeName(name) {
 
-  
+
       };
 
  }
