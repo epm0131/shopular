@@ -15,6 +15,10 @@ tr:nth-child(even) {
   background-color: $rowColorEven;
 }
 
+button {
+  position: relative;
+  left: 45%;
+}
 
 table {
   margin: 0 auto;

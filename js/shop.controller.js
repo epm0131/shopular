@@ -31,12 +31,18 @@
 
       this.getPrice = function getPrice(inventory) {
       var result = ((inventory.price - inventory.discount) * this.tax);
-      console.log('price getter', this.uk, result);
+      // console.log('price getter', this.uk, result);
       if (this.uk === true) {
        result *= 1.5;
       }
      return result;
    };
+
+      this.changeName = function changeName(name) {
+
+  
+      };
+
  }
 
 

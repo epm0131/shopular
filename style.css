@@ -11,6 +11,10 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
   background-color: #848484; }
 
+button {
+  position: relative;
+  left: 45%; }
+
 table {
   margin: 0 auto;
   width: 80%;
