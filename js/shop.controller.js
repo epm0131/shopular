@@ -7,7 +7,7 @@
     function InventoryController() {
 
       this.newItem = {};
-      this.tax = 1.575;
+      this.tax = 1.0575;
 
       this.items = [
         { "id": 2957, "name": "Widget", "price": 32, "quantity": 203, "color": "Red", "discount": 31 },

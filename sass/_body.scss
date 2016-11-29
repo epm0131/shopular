@@ -27,3 +27,7 @@ table {
   border: 1px solid black;
   text-align: center;
 }
+
+.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
