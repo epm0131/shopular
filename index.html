@@ -17,17 +17,16 @@
 
       <table>
         <thead>
-        <colgroup span='4'></colgroup>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th ng-if='!inven.uk'>Color</th>
-          <th ng-if='inven.uk'>Colour</th>
+          <th ng-click= "inven.changeOrder('name')">Name</th>
+          <th ng-click= "inven.changeOrder('price')">Price</th>
+          <th ng-click= "inven.changeOrder('quantity')">Quantity</th>
+          <th ng-click= "inven.changeOrder('color')" ng-if='!inven.uk'>Color</th>
+          <th ng-click= "inven.changeOrder('colour')" ng-if='inven.uk'>Colour</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat='inventory in inven.items'>
+        <tr ng-repeat='inventory in inven.items | orderBy: inven.orderBy'>
           <td> {{ inventory.name }} </td>
           <td> {{ inven.getPrice(inventory) | currency:inven.currencyFormat }}
             <img src='pic/98350f05-sale_2.png' ng-hide='inventory.discount===0'></td>
@@ -39,9 +38,10 @@
       <button ng-click='inven.switchLocale()'>Switch Currency</button>
 
       <form
+        novalidate
         name='addItem'
         class='add-item'
-        ng-submit='addNewItem.$valid && inven.addNewItem(inven.newItem)'>
+        ng-submit='inven.addNewItem(inven.newItem) && addNewItem.$touched && addNewItem.$valid '>
 
         <h2>Add Items</h2>
 

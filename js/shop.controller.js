@@ -8,6 +8,7 @@
 
       this.newItem = {};
       this.tax = 1.0575;
+      this.orderBy = "-name";
 
       this.items = [
         { "id": 2957, "name": "Widget", "price": 32, "quantity": 203, "color": "Red", "discount": 31 },
@@ -27,6 +28,11 @@
       this.uk = false;
       this.currencyFormat = '$';
 
+      this.changeOrder = function changeOrder(foo) {
+        console.log('hello');
+        this.orderBy = foo;
+      };
+
       this.switchLocale = function switchLocale() {
       this.uk = !this.uk;
       if(this.uk) {
@@ -45,6 +51,8 @@
       }
      return result;
    };
+
+
 
    this.addNewItem = function addNewItem(item) {
      console.log('Hello!', item);
