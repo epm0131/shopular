@@ -6,6 +6,7 @@
 
     function InventoryController() {
 
+      this.newItem = {};
       this.tax = 1.575;
 
       this.items = [
@@ -33,7 +34,7 @@
       } else {
         this.currencyFormat = '$';
       }
-      
+
       };
 
       this.getPrice = function getPrice(inventory) {
@@ -45,10 +46,17 @@
      return result;
    };
 
-      this.changeName = function changeName(name) {
+   this.addNewItem = function addNewItem(item) {
+     console.log('Hello!', item);
+     this.items.push( {
+       name: this.newItem.name,
+       price: this.newItem.price,
+       quantity: this.newItem.quantity,
+       color: this.newItem.color,
+       discount: this.newItem.discount
+     });
+   };
 
-
-      };
 
  }
 

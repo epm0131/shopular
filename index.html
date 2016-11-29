@@ -38,15 +38,49 @@
       </table>
       <button ng-click='inven.switchLocale()'>Switch Currency</button>
 
-      <form class="" action="index.html" method="post">
+      <form
+        name='addItem'
+        class='add-item'
+        ng-submit='inven.addNewItem(inven.newItem)'>
 
         <h2>Add Items</h2>
 
-        <input type="text" name="NewItem" placeholder='Add Item Name' required>
-        <input type="number" name="Price" placeholder='Add Price' required min=0>
-        <input type="number" name="Quantity" placeholder='Add Quantity' required min=0>
-        <input type="text" name="Color" placeholder='Add Color' required>
-        <input type="number" name="Discount" placeholder='Add Discount' required min=0>
+        <input
+        ng-model='inven.newItem.name'
+        type="text"
+        name="name"
+        placeholder='Add Item Name'
+        required>
+
+        <input
+        ng-model='inven.newItem.price'
+        type="number"
+        name="price"
+        placeholder='Add Price'
+        required min=0>
+
+        <input
+        ng-model='inven.newItem.quantity'
+        type="number"
+        name="quantity"
+        placeholder='Add Quantity'
+        required min=0>
+
+        <input
+        ng-model='inven.newItem.color'
+        type="text"
+        name="color"
+        placeholder='Add Color'
+        required>
+
+        <input
+        ng-model='inven.newItem.discount'
+        type="number"
+        name="discount"
+        placeholder='Add Discount'
+        required min=0>
+
+        <input type="submit">
 
 
 
@@ -70,7 +104,6 @@
   </script>
     <script src='js/shopular.module.js'></script>
     <script src='js/shop.controller.js'></script>
-    <script src='js/addItem.controller.js'></script>
 
 
 
