@@ -28,50 +28,70 @@
       this.uk = false;
       this.currencyFormat = '$';
 
+
+      /**
+       * Helps in sorting the information
+       * @param  {string} foo
+       * @return {[type]}     [description]
+       */
+
       this.changeOrder = function changeOrder(foo) {
-        console.log('hello');
         this.orderBy = foo;
       };
 
+      /**
+       * This is the switches the current currency to GBP and back to US
+       */
+
       this.switchLocale = function switchLocale() {
       this.uk = !this.uk;
-      if(this.uk) {
-        this.currencyFormat = 'GBP';
-      } else {
-        this.currencyFormat = '$';
-      }
-
+        if(this.uk) {
+          this.currencyFormat = 'GBP';
+        } else {
+          this.currencyFormat = '$';
+        }
       };
 
+      /**
+       * This will get you the current currency
+       * @param  {object} inventory [description]
+       * @return {[type]}           [description]
+       */
       this.getPrice = function getPrice(inventory) {
       var result = ((inventory.price - inventory.discount) * this.tax);
-      // console.log('price getter', this.uk, result);
-      if (this.uk === true) {
-       result *= 1.5;
-      }
-     return result;
-   };
+        if (this.uk === true) {
+         result *= 1.5;
+        }
+        return result;
+      };
 
+     /**
+      * This gives the ability to add new items to the table.
+      * @param {object} item [description]
+      */
+     this.addNewItem = function addNewItem(item) {
+       this.items.push( {
+         name: this.newItem.name,
+         price: this.newItem.price,
+         quantity: this.newItem.quantity,
+         color: this.newItem.color,
+         discount: this.newItem.discount
+       });
+     };
 
-
-   this.addNewItem = function addNewItem(item) {
-     console.log('Hello!', item);
-     this.items.push( {
-       name: this.newItem.name,
-       price: this.newItem.price,
-       quantity: this.newItem.quantity,
-       color: this.newItem.color,
-       discount: this.newItem.discount
-     });
-   };
-
-
- }
-
-
-
-
-
-
+     /**
+      * This allows the name change of the property
+      * @param  {object} itemProperty [description]
+      * @return {[type]}              [description]
+      */
+     this.changeName = function changeName(itemProperty) {
+       if(this.uk === true) {
+         if(itemProperty.name === 'Waste basket') {
+           itemProperty.name = 'Rubbish bin';
+         }
+       }
+       return itemProperty.name;
+     };
+    }
 
 }());

@@ -1,107 +1,97 @@
 <!DOCTYPE html>
 <html ng-app='shopular'>
-  <head>
-
-    <meta charset="utf-8">
-    <title>Shopular!</title>
-    <link rel='stylesheet' href='style.css' type='text/css'>
-
-  </head>
-  <body>
-
-    <header>
-      <h1>Shopular</h1>
-    </header>
-
-    <main ng-controller='InventoryController as inven'>
-
-      <table>
-        <thead>
+<head>
+  <meta charset="utf-8">
+  <title>Shopular!</title>
+  <link rel='stylesheet' href='style.css' type='text/css'>
+</head>
+<body>
+  <header>
+    <h1>Shopular</h1>
+  </header>
+  <main ng-controller='InventoryController as inven'>
+    <table>
+      <thead>
         <tr>
           <th ng-click= "inven.changeOrder('name')">Name</th>
           <th ng-click= "inven.changeOrder('price')">Price</th>
           <th ng-click= "inven.changeOrder('quantity')">Quantity</th>
-          <th ng-click= "inven.changeOrder('color')" ng-if='!inven.uk'>Color</th>
-          <th ng-click= "inven.changeOrder('colour')" ng-if='inven.uk'>Colour</th>
+          <th ng-if='!inven.uk'>Color</th>
+          <th ng-if='inven.uk'>Colour</th>
         </tr>
-        </thead>
-        <tbody>
+      </thead>
+      <tbody>
         <tr ng-repeat='inventory in inven.items | orderBy: inven.orderBy'>
-          <td> {{ inventory.name }} </td>
+          <td> {{ inven.changeName(inventory) }} </td>
           <td> {{ inven.getPrice(inventory) | currency:inven.currencyFormat }}
             <img src='pic/98350f05-sale_2.png' ng-hide='inventory.discount===0'></td>
-          <td> {{ inventory.quantity }} </td>
-          <td> {{ inventory.color }} </td>
-        </tr>
+            <td> {{ inventory.quantity }} </td>
+            <td> {{ inventory.color }} </td>
+          </tr>
         </tbody>
       </table>
       <button ng-click='inven.switchLocale()'>Switch Currency</button>
-
       <form
         novalidate
         name='addItem'
         class='add-item'
         ng-submit='inven.addNewItem(inven.newItem) && addNewItem.$touched && addNewItem.$valid '>
+      <h2>Add Items</h2>
 
-        <h2>Add Items</h2>
+      <input
+        ng-model='inven.newItem.name'
+        type="text"
+        name="name"
+        placeholder='Add Item Name'
+        required>
 
-        <input
-          ng-model='inven.newItem.name'
-          type="text"
-          name="name"
-          placeholder='Add Item Name'
-          required>
+      <input
+        ng-model='inven.newItem.price'
+        type="number"
+        name="price"
+        placeholder='Add Price'
+        required min=0>
 
-        <input
-          ng-model='inven.newItem.price'
-          type="number"
-          name="price"
-          placeholder='Add Price'
-          required min=0>
+      <input
+        ng-model='inven.newItem.quantity'
+        type="number"
+        name="quantity"
+        placeholder='Add Quantity'
+        required min=0>
 
-        <input
-          ng-model='inven.newItem.quantity'
-          type="number"
-          name="quantity"
-          placeholder='Add Quantity'
-          required min=0>
+      <input
+        ng-model='inven.newItem.color'
+        type="text"
+        name="color"
+        placeholder='Add Color'
+        required>
 
-        <input
-          ng-model='inven.newItem.color'
-          type="text"
-          name="color"
-          placeholder='Add Color'
-          required>
+      <input
+        ng-model='inven.newItem.discount'
+        type="number"
+        name="discount"
+        placeholder='Add Discount'
+        required min=0>
 
-        <input
-          ng-model='inven.newItem.discount'
-          type="number"
-          name="discount"
-          placeholder='Add Discount'
-          required min=0>
+      <input type="submit">
 
-        <input type="submit">
-
-      </form>
+    </form>
   </main>
-
   <footer>
     <p> &copy; The Shopular ltd. </p>
   </footer>
-
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js'></script>
-
   <script>
-    if(typeof(angular) === 'undefined') {
-      var ngScriptTag = document.createElement('script');
-      ngScriptTag.setAttribute('src', 'node_modules/angular/angular.js')
-      document.write(ngScriptTag.outerHTML);
-    }
+  if(typeof(angular) === 'undefined') {
+    var ngScriptTag = document.createElement('script');
+    ngScriptTag.setAttribute('src', 'node_modules/angular/angular.js')
+    document.write(ngScriptTag.outerHTML);
+  }
   </script>
-    <script src='js/shopular.module.js'></script>
-    <script src='js/shop.controller.js'></script>
+  <script src='js/shopular.module.js'></script>
+  <script src='js/shop.controller.js'></script>
 
 
 
-  </body>
+</body>
 </html>
