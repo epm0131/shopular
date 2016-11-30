@@ -30,7 +30,7 @@
 
 
       /**
-       * Helps in sorting the information
+       * Sort our data by whatever property you give it
        * @param  {string} foo
        * @return {[type]}     [description]
        */
@@ -55,7 +55,7 @@
       /**
        * This will get you the current currency
        * @param  {object} inventory [description]
-       * @return {[type]}           [description]
+       * @return {object}           [description]
        */
       this.getPrice = function getPrice(inventory) {
       var result = ((inventory.price - inventory.discount) * this.tax);
@@ -71,18 +71,17 @@
       */
      this.addNewItem = function addNewItem(item) {
        this.items.push( {
-         name: this.newItem.name,
-         price: this.newItem.price,
-         quantity: this.newItem.quantity,
-         color: this.newItem.color,
-         discount: this.newItem.discount
+         name: item.name,
+         price: Number(item.price),
+         quantity: Number(item.quantity),
+         color: item.color,
+         discount: Number(item.discount)
        });
      };
 
      /**
       * This allows the name change of the property
       * @param  {object} itemProperty [description]
-      * @return {[type]}              [description]
       */
      this.changeName = function changeName(itemProperty) {
        if(this.uk === true) {
