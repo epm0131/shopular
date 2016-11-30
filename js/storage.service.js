@@ -32,7 +32,15 @@
           return items;
         }
 
-        function saveNewItem() {
+        function saveNewItem(item) {
+          items.push( {
+            name: item.name,
+            price: Number(item.price),
+            quantity: Number(item.quantity),
+            color: item.color,
+            discount: Number(item.discount)
+          });
+
 
         }
 

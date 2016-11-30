@@ -54,18 +54,8 @@
         return result;
       };
 
-     /**
-      * This gives the ability to add new items to the table.
-      * @param {object} item [description]
-      */
      this.addNewItem = function addNewItem(item) {
-       this.allData.push( {
-         name: item.name,
-         price: Number(item.price),
-         quantity: Number(item.quantity),
-         color: item.color,
-         discount: Number(item.discount)
-       });
+       storageService.saveNewItem(item);
      };
 
      /**
