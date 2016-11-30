@@ -21,7 +21,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat='inventory in inven.items | orderBy: inven.orderBy'>
+        <tr ng-repeat='inventory in inven.allData | orderBy: inven.orderBy'>
           <td> {{ inven.changeName(inventory) }} </td>
           <td> {{ inven.getPrice(inventory) | currency:inven.currencyFormat }}
             <img src='pic/98350f05-sale_2.png' ng-hide='inventory.discount===0'></td>
