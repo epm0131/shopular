@@ -63,12 +63,12 @@
       * @param  {object} itemProperty [description]
       */
      this.changeName = function changeName(itemProperty) {
+       var result = itemProperty.name;
        if(this.uk === true) {
-         if(itemProperty.name === 'Waste basket') {
-           itemProperty.name = 'Rubbish bin';
-         }
+         if (itemProperty.name === 'Waste basket')
+        result = 'Rubbish bin';
        }
-       return itemProperty.name;
+       return result;
      };
     }
 
