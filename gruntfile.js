@@ -32,8 +32,8 @@ module.exports = function(grunt) {
                         'src/js/shopular.module.js',
                         'src/js/shop.controller.js',
                         'src/js/storage.service.js',
-                        'test/specs/storage.spec.service.js',
-                        'test/specs/shop.spec.controller.js'
+                        'test/specs/storage.service.spec.js',
+                        'test/specs/shop.controller.spec.js'
                     ]
                 }
             }
