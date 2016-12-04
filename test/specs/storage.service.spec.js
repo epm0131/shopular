@@ -22,7 +22,6 @@
         quantity: 3,
         color: 'Red',
         discount: 1});
-        console.log(result,'what are you?');
         expect(result).to.be.undefined;
     });
 
@@ -33,17 +32,23 @@
         expect(allItems[1].name).to.equal('Golf club');
     });
 
-    it('should fail if I do not provide an item object with all properties to add',
-    function(){
-      try{
-        var result = StorageService.saveNewItem({
-          name: 'Mallet',
-        });
-      } catch(err) {
-          expect(err).to.equal('object');
-      }
-
+    it('should fail if all the required items are not provided', function(){
+      StorageService.saveNewItem('Screws');
+      var items = StorageService.getAll();
+      expect(items.length).to.equal(13);
     });
+
+    // it('should fail if I do not provide an item object with all properties to add',
+    // function(){
+    //   try{
+    //     var result = StorageService.saveNewItem({
+    //       name: 'Mallet',
+    //     });
+    //   } catch(err) {
+    //       expect(err).to.equal('object');
+    //   }
+    //
+    // });
   });
 
 }());

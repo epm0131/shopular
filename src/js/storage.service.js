@@ -33,6 +33,9 @@
         }
 
         function saveNewItem(item) {
+          if(!item || !item.name || !item.price || !item.quantity || !item.color || !item.discount)
+          return;
+
           items.push( {
             name: item.name,
             price: Number(item.price),

@@ -10,7 +10,6 @@
     function InventoryController(storageService) {
 
       this.allData = storageService.getAll();
-
       this.newItem = {};
       this.tax = 1.0575;
       this.orderBy = "-name";
@@ -20,12 +19,12 @@
 
       /**
        * Sort our data by whatever property you give it
-       * @param  {string} foo
+       * @param  {string} sort
        * @return {[type]}     [description]
        */
 
-      this.changeOrder = function changeOrder(foo) {
-        this.orderBy = foo;
+      this.changeOrder = function changeOrder(sort) {
+        this.orderBy = sort;
       };
 
       /**
@@ -54,8 +53,13 @@
         return result;
       };
 
+      /**
+       * adds new item to array
+       * @param {object} item new item with properties
+       */
      this.addNewItem = function addNewItem(item) {
        storageService.saveNewItem(item);
+       this.newItem = {};
      };
 
      /**
