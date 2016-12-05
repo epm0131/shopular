@@ -58,6 +58,9 @@
        * @param {object} item new item with properties
        */
      this.addNewItem = function addNewItem(item) {
+       if(typeof(item) !== 'object') {
+         return;
+       }
        storageService.saveNewItem(item);
        this.newItem = {};
      };

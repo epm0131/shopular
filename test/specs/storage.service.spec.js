@@ -38,17 +38,6 @@
       expect(items.length).to.equal(13);
     });
 
-    // it('should fail if I do not provide an item object with all properties to add',
-    // function(){
-    //   try{
-    //     var result = StorageService.saveNewItem({
-    //       name: 'Mallet',
-    //     });
-    //   } catch(err) {
-    //       expect(err).to.equal('object');
-    //   }
-    //
-    // });
   });
 
 }());

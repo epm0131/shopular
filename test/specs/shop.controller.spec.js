@@ -48,6 +48,8 @@
     it('should sort the order of the information', function () {
       InventoryController.changeOrder('name');
       expect(InventoryController.orderBy).to.equal('name');
+      InventoryController.changeOrder('quantity');
+      expect(InventoryController.orderBy).to.equal('quantity');
     });
 
     it('should calculate the total price applying tax and discount', function(){
@@ -60,8 +62,54 @@
         discount: 5
 
       });
+      console.log('how much are you....in US', item);
       expect(item).to.be.a('number');
+      expect(item).to.equal((10 - 5) * InventoryController.tax);
     });
+
+    it('should have different calculations when switch to uk properties', function() {
+      InventoryController.switchLocale();
+      var newPrice = InventoryController.getPrice({
+
+        name: 'Hoe',
+        price: 10,
+        quantity: 10,
+        color: 'Green',
+        discount: 5
+
+      });
+      console.log('how much are you....in UK', newPrice);
+      expect(newPrice).to.equal(((10 - 5) * InventoryController.tax)*1.5);
+    });
+
+    it('should change the name when going from us to uk', function() {
+      InventoryController.switchLocale();
+      var nameChange = InventoryController.changeName({
+
+        name: 'Waste bin',
+        price: 10,
+        quantity: 10,
+        color: 'Green',
+        discount: 5
+
+      });
+      console.log('what am i', nameChange.name);
+      expect(nameChange).to.be.a('string');
+    });
+
+    it('should be represented with GBP when there is a local switch', function (){
+      InventoryController.switchLocale();
+      var currency = InventoryController.currencyFormat;
+      console.log('i should be GBP', currency);
+      expect(currency).to.equal('GBP');
+    });
+
+    it('should be represented with $ if no locale switch', function() {
+      var currency = InventoryController.currencyFormat;
+      console.log('i should be $', currency);
+      expect(currency).to.equal('$');
+    });
+
 
 
 
