@@ -86,15 +86,16 @@
       InventoryController.switchLocale();
       var nameChange = InventoryController.changeName({
 
-        name: 'Waste bin',
+        name: 'Waste basket',
         price: 10,
         quantity: 10,
         color: 'Green',
         discount: 5
 
       });
-      console.log('what am i', nameChange.name);
+      console.log('what am i', nameChange);
       expect(nameChange).to.be.a('string');
+      expect(nameChange).to.equal('Rubbish bin');
     });
 
     it('should be represented with GBP when there is a local switch', function (){
@@ -114,10 +115,15 @@
 
 
     // it('should use the service to add a new item', function() {
-    //   InventoryController.newItem.foo = 'bar';
-    //   var theItem = {};
-    //   InventoryController.add(theItem);
-    //   expect(InventoryController.newItem.foo).to.be.undefined;
+    //   InventoryController.add({
+    //
+    //     name: 'Hoe',
+    //     price: 10,
+    //     quantity: 10,
+    //     color: 'Green',
+    //     discount: 5
+    //
+    //   });
     //   expect(mockStorageService.add.numTimesCalled).to.equal(1);
     //   expect(mockStorageService.add.lastArgument).to.equal(theItem);
     // });
