@@ -67,7 +67,7 @@
 
      /**
       * This allows the name change of the property
-      * @param  {object} itemProperty [description]
+      * @param  {string} itemProperty name of property
       */
      this.changeName = function changeName(itemProperty) {
        var result = itemProperty.name;
