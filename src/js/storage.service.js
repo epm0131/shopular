@@ -27,14 +27,22 @@
             saveNewItem: saveNewItem,
             updateAll: updateAll
           };
-
+        /**
+         * grabs all the objects in the data array
+         * @return {item} returns the data in the array
+         */
         function getAll() {
           return items;
         }
-
+        /**
+         * Will create a new item & put it in the array
+         * @param  {object} item new item with values put in
+         * @return {object}      the new item created
+         */
         function saveNewItem(item) {
-          if(!item || !item.name || !item.price || !item.quantity || !item.color || !item.discount)
+          if(!item || !item.name || !item.price || !item.quantity || !item.color || !item.discount) {
           return;
+          }
 
           items.push( {
             name: item.name,
@@ -43,11 +51,13 @@
             color: item.color,
             discount: Number(item.discount)
           });
-          localStorage.setItem('items', angular.toJson(items));
-        }
-
-        function updateAll() {
-
+        } 
+        /**
+         * grabs all the data that has been placed in local storaage
+         * @param  {Array} newItems the new item that is added to local storage
+         */
+        function updateAll(newItems) {
+          localStorage.setItem('newItems', angular.toJson(newItems));
         }
 
       }

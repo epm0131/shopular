@@ -24,23 +24,27 @@
           discount: 1
         }];
       };
-
+      //spying on the library!!! that is what it is called.
       mockStorageService.add = function(argOne) {
         mockStorageService.add.numTimesCalled++;
         mockStorageService.add.lastArgument = argOne;
       };
       mockStorageService.add.numTimesCalled = 0;
+
+      //New fresh pristine controller each time!
       InventoryController = $controller('InventoryController');
 
     }));
 
     it('should have correct scope variables', function() {
-      expect(InventoryController.orderBy).to.be.a('string');
-      expect(InventoryController.tax).to.be.a('number');
-      expect(InventoryController.uk).to.be.a('boolean');
-      expect(InventoryController.currencyFormat).to.be.a('string');
+      expect(InventoryController.orderBy).to.equal('-name');
+      expect(InventoryController.tax).to.equal(1.0575);
+      expect(InventoryController.uk).to.equal(false);
+      expect(InventoryController.currencyFormat).to.equal('$');
       expect(InventoryController.allData).to.be.an('array');
+      //this is a model for the newItem (there is no data in it yet).
       expect(InventoryController.newItem).to.be.an('object');
+      //that is why this length is 0 bc they are no properties in there yet.
       expect(Object.keys(InventoryController.newItem).length).to.equal(0);
       expect(InventoryController.allData.length).to.equal(1);
     });
@@ -53,7 +57,8 @@
     });
 
     it('should calculate the total price applying tax and discount', function(){
-      var item = InventoryController.getPrice({
+      InventoryController.uk = false;
+      var price = InventoryController.getPrice({
 
         name: 'Hoe',
         price: 10,
@@ -62,13 +67,13 @@
         discount: 5
 
       });
-      console.log('how much are you....in US', item);
-      expect(item).to.be.a('number');
-      expect(item).to.equal((10 - 5) * InventoryController.tax);
+      console.log('how much are you....in US', price);
+      expect(price).to.be.a('number');
+      expect(price).to.equal((10 - 5) * InventoryController.tax);
     });
 
     it('should have different calculations when switch to uk properties', function() {
-      InventoryController.switchLocale();
+      InventoryController.uk = true;
       var newPrice = InventoryController.getPrice({
 
         name: 'Hoe',
@@ -83,7 +88,7 @@
     });
 
     it('should change the name when going from us to uk', function() {
-      InventoryController.switchLocale();
+      InventoryController.uk = true;
       var nameChange = InventoryController.changeName({
 
         name: 'Waste basket',
@@ -110,6 +115,8 @@
       console.log('i should be $', currency);
       expect(currency).to.equal('$');
     });
+
+
 
 
 

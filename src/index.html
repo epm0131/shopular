@@ -23,10 +23,13 @@
       <tbody>
         <tr ng-repeat='inventory in inven.allData | orderBy: inven.orderBy'>
           <td> {{ inven.changeName(inventory) }} </td>
-          <td> {{ inven.getPrice(inventory) | currency:inven.currencyFormat }}
-            <img src='pic/98350f05-sale_2.png' ng-hide='inventory.discount===0'></td>
-            <td> {{ inventory.quantity }} </td>
-            <td> {{ inventory.color }} </td>
+          <td>
+            {{ inven.getPrice(inventory) | currency:inven.currencyFormat }}
+            <img src='pic/98350f05-sale_2.png'
+            ng-hide='inventory.discount===0'>
+          </td>
+          <td> {{ inventory.quantity }} </td>
+          <td> {{ inventory.color }} </td>
           </tr>
         </tbody>
       </table>
@@ -42,40 +45,40 @@
 
       <input
         ng-model='inven.newItem.name'
-        type="text"
-        name="itemProp"
+        type='text'
+        name='itemProp'
         placeholder='Add Item Name'
         required>
 
       <input
         ng-model='inven.newItem.price'
-        type="number"
-        name="itemProp"
+        type='number'
+        name='itemProp'
         placeholder='Add Price'
-        required min=0>
+        required min='0'>
 
       <input
         ng-model='inven.newItem.quantity'
-        type="number"
-        name="itemProp"
+        type='number'
+        name='itemProp'
         placeholder='Add Quantity'
-        required min=0>
+        required min='0'>
 
       <input
         ng-model='inven.newItem.color'
-        type="text"
-        name="itemProp"
+        type='text'
+        name='itemProp'
         placeholder='Add Color'
         required>
 
       <input
         ng-model='inven.newItem.discount'
-        type="number"
-        name="itemProp"
+        type='number'
+        name='itemProp'
         placeholder='Add Discount'
-        required min=0>
+        required min='0'>
 
-      <input type="submit">
+      <input type='submit'>
 
     </form>
   </main>
