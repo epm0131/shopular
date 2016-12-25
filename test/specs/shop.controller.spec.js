@@ -67,7 +67,6 @@
         discount: 5
 
       });
-      console.log('how much are you....in US', price);
       expect(price).to.be.a('number');
       expect(price).to.equal((10 - 5) * InventoryController.tax);
     });
@@ -83,7 +82,6 @@
         discount: 5
 
       });
-      console.log('how much are you....in UK', newPrice);
       expect(newPrice).to.equal(((10 - 5) * InventoryController.tax)*1.5);
     });
 
@@ -98,7 +96,6 @@
         discount: 5
 
       });
-      console.log('what am i', nameChange);
       expect(nameChange).to.be.a('string');
       expect(nameChange).to.equal('Rubbish bin');
     });
@@ -106,13 +103,11 @@
     it('should be represented with GBP when there is a local switch', function (){
       InventoryController.switchLocale();
       var currency = InventoryController.currencyFormat;
-      console.log('i should be GBP', currency);
       expect(currency).to.equal('GBP');
     });
 
     it('should be represented with $ if no locale switch', function() {
       var currency = InventoryController.currencyFormat;
-      console.log('i should be $', currency);
       expect(currency).to.equal('$');
     });
 

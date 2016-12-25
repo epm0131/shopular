@@ -41,40 +41,40 @@
         ng-submit= 'addItem.$valid  && inven.addNewItem(inven.newItem)'>
       <h2>Add Items</h2>
 
-      <p ng-show='addItem.itemProp.$touched && !addItem.itemProp.$valid'>Please Fill in Blanks!</p>
+      <p ng-show='addItem.$touched && !addItem.$valid'>Please Fill in Blanks!</p>
 
       <input
         ng-model='inven.newItem.name'
         type='text'
-        name='itemProp'
+        name='name'
         placeholder='Add Item Name'
         required>
 
       <input
         ng-model='inven.newItem.price'
         type='number'
-        name='itemProp'
+        name='price'
         placeholder='Add Price'
         required min='0'>
 
       <input
         ng-model='inven.newItem.quantity'
         type='number'
-        name='itemProp'
+        name='quantity'
         placeholder='Add Quantity'
         required min='0'>
 
       <input
         ng-model='inven.newItem.color'
         type='text'
-        name='itemProp'
+        name='color'
         placeholder='Add Color'
         required>
 
       <input
         ng-model='inven.newItem.discount'
         type='number'
-        name='itemProp'
+        name='discount'
         placeholder='Add Discount'
         required min='0'>
 

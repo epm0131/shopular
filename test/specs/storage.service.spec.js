@@ -12,7 +12,7 @@
 
     //this helps clear anything in local storage!!!
     beforeEach(function clearlocalStorage() {
-      window.localStorage.clear();
+      localStorage.setItem('items', '[]');
     });
 
     //before each test we inject storageService - they are singleton, in our test
@@ -27,24 +27,33 @@
         price: 2,
         quantity: 3,
         color: 'Red',
-        discount: 1});
+        discount: 1
+        });
         expect(result).to.be.undefined;
-        console.log('what are you?', result);
-    });
-
-    it('should be able to get all the items', function (){
         var allItems = StorageService.getAll();
         expect(allItems).to.be.an('array');
-        expect(allItems.length).to.equal(12);
+        expect(allItems.length).to.equal(1);
         expect(allItems[0]).to.include.keys('name', 'price', 'quantity', 'color', 'discount');
         // expect(allItems[1].name).to.equal('Golf club'); this code is easy to break
         // use the one above becuase it is more generic.
+        var storedItems = angular.fromJson(localStorage.getItem('items'));
+        var newItem =
+        {name: 'Nails',
+        price: 10,
+        quantity: 100,
+        color: 'Magenta',
+        discount: 1
+        };
+        StorageService.saveNewItem(newItem);
+        var newStoredItem = JSON.parse(localStorage.getItem('items'));
+        expect(newStoredItem.length).to.equal(2);
+        expect(newStoredItem).to.be.an('array');
+        expect(newStoredItem[0]).to.include.keys('name', 'price', 'quantity', 'color', 'discount');
     });
 
-    it('should fail if all the required items are not provided', function(){
-      StorageService.saveNewItem('Screws');
-      var items = StorageService.getAll();
-      expect(items.length).to.equal(12);
+    it('should return undefined if all the required properties are not provided', function(){
+      var failedItem = StorageService.saveNewItem();
+      expect(failedItem).to.be.undefined;
     });
 
   });

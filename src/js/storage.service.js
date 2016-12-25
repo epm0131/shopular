@@ -51,13 +51,14 @@
             color: item.color,
             discount: Number(item.discount)
           });
-        } 
+          updateAll();
+        }
         /**
          * grabs all the data that has been placed in local storaage
          * @param  {Array} newItems the new item that is added to local storage
          */
-        function updateAll(newItems) {
-          localStorage.setItem('newItems', angular.toJson(newItems));
+        function updateAll() {
+          localStorage.setItem('items', angular.toJson(items));
         }
 
       }
